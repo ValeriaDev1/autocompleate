@@ -1,0 +1,26 @@
+<div style="text-align:center">
+    <h1>
+      Search email to send email
+    </h1>
+ </div>
+ <div style="text-align:center">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)"  >
+    <span class="p-fluid">
+        <p-autoComplete name="followingsM" ngModel #followingsM="ngModel" [suggestions]="flowings" (completeMethod)="search($event)" field="name" [dropdown]="true"  [multiple]="true"  placeholder="Search Follow">
+            <ng-template let-flowings pTemplate="selectedItem">
+                {{flowings.name}} : {{flowings.email}}
+            </ng-template>
+          </p-autoComplete>
+    </span>
+    <br><br>
+    <span class="p-fluid">
+        <p-autoComplete name="selectedEmployees" ngModel #selectedEmployees="ngModel" [suggestions]="filteredEmployees" (completeMethod)="filterEmployee($event)" field="employee_name" [dropdown]="true" [multiple]="true"  placeholder="Search With service">
+        </p-autoComplete>
+    </span>
+    <br><br>
+        <button pButton type="submit" label="Send Form" ></button>
+  </form>
+  <br>
+  <br>
+
+ </div>
